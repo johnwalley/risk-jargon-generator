@@ -17,7 +17,7 @@ module.exports = function(config){
     singleRun : true,
 
     proxies : {
-      '/': 'http://localhost:8000/'
+      '/': 'http://localhost:9876/'
     },
 
     plugins : [
