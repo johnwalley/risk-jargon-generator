@@ -53,7 +53,6 @@ angular.module('riskJargonGenerator.services', []).
 });
 
 
-
 angular.module('ParseServices', []).
   factory('ExtendParseSDK', ['ParseAbstractService',
   function(ParseAbstractService) {
