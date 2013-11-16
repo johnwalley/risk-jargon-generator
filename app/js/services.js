@@ -1,6 +1,59 @@
 'use strict';
 
 /* Services */
+
+angular.module('riskJargonGenerator.services', []).
+  value('version', '0.1').
+  factory('Jargon',
+    function() {
+
+    var constructs = [{
+      types: ["verb", "adjective", "abbreviation", "noun"],
+      structure: "We need to {0} the {1} {2} {3}!"
+    }, {
+      types: ["verb", "abbreviation", "noun", "verb", "adjective", "noun"],
+      structure: "Try to {0} the {1} {2} - maybe it will {3} the {4} {5}!"
+    }];
+
+    var jargon = {};
+
+    jargon.constructs = constructs;
+
+    jargon.generate = function(x) {
+      var construct = jargon.constructs[Math.floor(Math.random() * jargon.constructs.length)];
+      var sentence = construct.structure;
+
+      jargon.verbs = _.map(x.verbs.models, function(m) {
+        return m.getWord()
+      });
+      jargon.abbreviations = _.map(x.abbreviations.models, function(m) {
+        return m.getWord()
+      });
+      jargon.nouns = _.map(x.nouns.models, function(m) {
+        return m.getWord()
+      });
+      jargon.adjectives = _.map(x.adjectives.models, function(m) {
+        return m.getWord()
+      });
+
+      for (var i = 0; i < construct.types.length; i++) {
+
+        var words = jargon[construct.types[i] + "s"];
+        var wordIndex = Math.floor(Math.random() * words.length);
+
+        var word = words[wordIndex];
+
+        sentence = sentence.replace("{" + i + "}", word);
+      }
+
+      return sentence;
+    }
+
+    return jargon
+});
+
+
+
 angular.module('ParseServices', []).
   factory('ExtendParseSDK', ['ParseAbstractService',
   function(ParseAbstractService) {

@@ -1,9 +1,23 @@
 <a ng-click="refresh()" class="btn btn-success btn-large">Generate</a> 
 <h1>{{sentence}}</h1>
 
-<button ng-click="favourite()" type="button" class="btn btn-info btn-medium">
-  <i class="icon-book icon-white"></i> Make me a powerpoint slide from this jargon! (EXPERIMENTAL)
-</button>
+<div ng-controller="ModalDemoCtrl">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3>Synergies!</h3>
+        </div>
+        <img src="http://us.123rf.com/400wm/400/400/chagin/chagin1104/chagin110400166/9335435-business-people-working-in-team-in-the-office.jpg" />
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+	<button ng-click="open()" type="button" class="btn btn-info btn-medium">
+	  <i class="icon-book icon-white"></i> Make this into a PowerPoint slide!
+	</button>
+</div>
+
 <hr/>
 
 <a ui-sref=".list">
