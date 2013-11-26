@@ -3,7 +3,7 @@
 /* Services */
 
 angular.module('riskJargonGenerator.services', []).
-  value('version', '0.1').
+  value('version', '0.2').
   factory('Jargon',
     function() {
 
@@ -51,6 +51,7 @@ angular.module('riskJargonGenerator.services', []).
 
     return jargon
 });
+
 
 angular.module('ParseServices', []).
   factory('ExtendParseSDK', ['ParseAbstractService',
@@ -175,29 +176,6 @@ angular.module('ExternalDataServices')
 .factory('JargonService', ['ParseQueryAngular',
   function(ParseQueryAngular) {
 
-    var Sentence = Parse.Object.extendAngular({
-      className: "Favourites",
-      setSentence: function(sentence) {
-        this.set('sentence', sentence);
-        return this;
-      },
-      getSentence: function() {
-        return this.get('sentence');
-      },
-      setVotes: function(votes) {
-        this.set('votes', votes);
-        return this;
-      },
-      getVotes: function() {
-        return this.get('votes');
-      },
-      destroyParse: function() {
-        return ParseQueryAngular(this, {
-          functionToCall: "destroy"
-        });
-      }
-    });
-
     var Verb = Parse.Object.extendAngular({
       className: "Verb",
       setWord: function(word) {
@@ -258,32 +236,6 @@ angular.module('ExternalDataServices')
       destroyParse: function() {
         return ParseQueryAngular(this, {
           functionToCall: "destroy"
-        });
-      }
-    });
-
-    var Sentences = Parse.Collection.extendAngular({
-      model: Sentence,
-      comparator: function(model) {
-        return -model.createdAt.getTime();
-      },
-      addSentence: function(sentenceIn) {
-        // save request_id to Parse
-        var _this = this;
-
-        var sentence = new Sentence();
-        sentence.setSentence(sentenceIn);
-
-        // use the extended Parse SDK to perform a save and return the promised object back into the Angular world
-        return sentence.saveParse().then(function(data) {
-          _this.add(data);
-        })
-      },
-      removeWord: function(sentence) {
-        if (!this.get(sentence)) return false;
-        var _this = this;
-        return sentence.destroyParse().then(function() {
-          _this.remove(sentence);
         });
       }
     });
@@ -399,7 +351,6 @@ angular.module('ExternalDataServices')
       abbreviations: Abbreviations,
       nouns: Nouns,
       adjectives: Adjectives,
-      sentences: Sentences
     };
   }
 ]);

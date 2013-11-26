@@ -6,7 +6,7 @@
       <input class="btn-primary" type="submit" value="add">
     </form>
     <ul class="unstyled">
-      <li ng-repeat="verb in verbs">
+      <li ng-repeat="verb in verbs.models">
         {{verb.getWord()}}
       </li>
     </ul>
@@ -19,7 +19,7 @@
       <input class="btn-primary" type="submit" value="add">
     </form>
     <ul class="unstyled">
-      <li ng-repeat="adjective in adjectives">
+      <li ng-repeat="adjective in adjectives.models">
         {{adjective.getWord()}}
       </li>
     </ul>
@@ -32,7 +32,7 @@
       <input class="btn-primary" type="submit" value="add">
     </form>
     <ul class="unstyled">
-      <li ng-repeat="noun in nouns">
+      <li ng-repeat="noun in nouns.models">
         {{noun.getWord()}}
       </li>
     </ul>
@@ -45,7 +45,7 @@
       <input class="btn-primary" type="submit" value="add">
     </form>
     <ul class="unstyled">
-      <li ng-repeat="abbreviation in abbreviations">
+      <li ng-repeat="abbreviation in abbreviations.models">
         {{abbreviation.getWord()}}
       </li>
     </ul>
