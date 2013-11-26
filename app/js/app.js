@@ -1,6 +1,5 @@
 'use strict';
 
-
 // Declare app level module which depends on filters, and services
 angular.module('riskJargonGenerator', [
 	'riskJargonGenerator.controllers',
@@ -14,18 +13,18 @@ angular.module('riskJargonGenerator', [
 config(function($stateProvider, $urlRouterProvider) {
 
   // For any unmatched url, send to /jargon
-  $urlRouterProvider.otherwise("/jargon")
+  $urlRouterProvider.otherwise("/jargon");
 
   $stateProvider
   .state('jargon', {
   	url: "/jargon",
   	templateUrl: "partials/jargon.html",
-  	controller: 'MyCtrl1'
+  	controller: 'JargonCtrl'
   })
   .state('jargon.list', {
   	url: "/list",
   	templateUrl: "partials/jargon.list.html",
-  	controller: 'MyCtrl2'
+  	controller: 'JargonListCtrl'
   })
   .state('about', {
   	url: "/about",
