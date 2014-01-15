@@ -1,7 +1,7 @@
 {
-  "name": "angularjs-seed",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "name": "risk-jargon-generator",
+  "description": "Generates risk-related jargon",
+  "repository": "https://github.com/johnwalley/risk-jargon-generator",
   "devDependencies": {
     "phantomjs" : "~1.9",
     "karma" : "~0.10",
