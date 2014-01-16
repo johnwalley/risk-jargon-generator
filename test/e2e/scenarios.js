@@ -9,20 +9,20 @@ describe('my app', function() {
   });
 
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/view1");
+  it('should automatically redirect to /jargon when location hash/fragment is empty', function() {
+    expect(browser().location().url()).toBe("/jargon");
   });
 
 
-  describe('view1', function() {
+  describe('jargon', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view1');
+      browser().navigateTo('#/jargon');
     });
 
 
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element('[ng-view] p:first').text()).
+    it('should render jargon when user navigates to /jargon', function() {
+      expect(element('.btn').text()).
         toMatch(/partial for view 1/);
     });
 
