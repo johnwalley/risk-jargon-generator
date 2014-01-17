@@ -1,6 +1,7 @@
 module.exports = function(config){
     config.set({
 
+    urlRoot : '/_karma_/',
 
     basePath : '../',
 
@@ -17,7 +18,7 @@ module.exports = function(config){
     singleRun : true,
 
     proxies : {
-      '/': 'http://localhost:9876/'
+      '/': 'http://localhost:8000/'
     },
 
     plugins : [
