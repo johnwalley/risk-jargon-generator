@@ -1,1 +1,27 @@
 /* app css stylesheet */
+
+.box {  
+    height: 400px;  
+    float: left;  
+    margin: 5px;  
+    position: relative;  
+    overflow: hidden;  
+    width: 285px;  
+}  
+  
+.box img {
+    position: absolute;  
+    left: 0;  
+} 
+
+.box .caption {  
+    background-color: rgba(0,0,0,0.6);  
+    position: absolute;  
+    color: #fff;  
+    z-index: 100;  
+    left: 0;  
+    width: 100%;  
+    display: block;  
+    line-height: 25pt;  
+    text-align: center;  	
+}  

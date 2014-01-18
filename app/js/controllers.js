@@ -10,10 +10,6 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', '$q', function($s
 		$scope.sentence = Jargon.generate(jargon);
 	}
 
-	$scope.favourite = function() {
-		jargon.sentences.addSentence($scope.sentence);
-	}
-
   // Get the collections from our data definitions
   var verbs = new JargonService.verbs();
   var abbreviations = new JargonService.abbreviations();
@@ -50,27 +46,4 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', '$q', function($s
   $scope.addAdjective = function() {
   	adjectives.addWord($scope.newadjective)
   };
-}]).
-controller('ModalInstanceCtrl', ['$scope', '$modalInstance', function ($scope, $modalInstance) {
-
-	$scope.ok = function () {
-		$modalInstance.close();
-	};
-
-	$scope.cancel = function () {
-		$modalInstance.dismiss('cancel');
-	};
-}]).
-controller('ModalDemoCtrl', ['$scope', '$modal', '$log', function ($scope, $modal, $log) {
-
-
-	$scope.open = function () {
-
-		var modalInstance = $modal.open({
-			templateUrl: 'myModalContent.html',
-			controller: 'ModalInstanceCtrl'
-
-		});
-	};
 }]);
-
