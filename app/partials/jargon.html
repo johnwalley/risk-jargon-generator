@@ -1,5 +1,6 @@
 <a ng-click="refresh()" class="btn btn-success btn-large">Generate</a> 
 <h1>{{sentence}}</h1>
+<h5 class="muted" ng-show="previousSentence != null">Previous: {{previousSentence}}</h5>
 
 <hr/>
 <button class="btn" ng-click="isCollapsed = !isCollapsed">Add words</button>

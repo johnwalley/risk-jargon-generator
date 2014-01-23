@@ -4,10 +4,16 @@
 
 angular.module('riskJargonGenerator.controllers', ['riskJargonGenerator.services']).
 controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', '$q', function($scope, Jargon, JargonService, $q) {
-	$scope.isCollapsed = true;
+	
+  $scope.isCollapsed = true;
+
+  var history = new Array();
 
 	$scope.refresh = function() {
-		$scope.sentence = Jargon.generate(jargon);
+    $scope.previousSentence = $scope.sentence;
+    var sentence = Jargon.generate(jargon);
+		$scope.sentence = sentence;
+    history.push(sentence);
 	}
 
   // Get the collections from our data definitions
