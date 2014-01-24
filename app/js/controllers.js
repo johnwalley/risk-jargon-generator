@@ -3,17 +3,16 @@
 /* Controllers */
 
 angular.module('riskJargonGenerator.controllers', ['riskJargonGenerator.services']).
-controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', '$q', function($scope, Jargon, JargonService, $q) {
+controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', function($scope, Jargon, JargonService, History, $q) {
 	
   $scope.isCollapsed = true;
 
   var history = new Array();
 
 	$scope.refresh = function() {
-    $scope.previousSentence = $scope.sentence;
     var sentence = Jargon.generate(jargon);
-		$scope.sentence = sentence;
-    history.push(sentence);
+    $scope.sentence = sentence;
+    History.Update(sentence);
 	}
 
   // Get the collections from our data definitions
@@ -52,4 +51,7 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', '$q', function($s
   $scope.addAdjective = function() {
   	adjectives.addWord($scope.newadjective)
   };
+}]).
+controller('DropdownCtrl', ['$scope', 'History', function($scope, History) {
+  $scope.items = History.history;
 }]);
