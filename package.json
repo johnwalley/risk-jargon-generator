@@ -10,6 +10,8 @@
     "karma-ng-scenario": "~0.1",
     "grunt": "~0.4.2",
     "install": "~0.1.7",
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.0",
     "grunt-gh-pages": "~0.9.0"
   }
 }
