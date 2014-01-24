@@ -3,7 +3,7 @@
 /* Services */
 
 angular.module('riskJargonGenerator.services', []).
-  value('version', '0.3').
+  value('version', '0.2').
   factory('Jargon',
     function() {
     var constructs = [{
