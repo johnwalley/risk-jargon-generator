@@ -1,6 +1,9 @@
-<a ng-click="refresh()" class="btn btn-success btn-large">Generate</a> 
+<button  ng-click="refresh()" class="btn btn-success btn-large">Generate</button> 
 <h1>{{sentence}}</h1>
-<h5 class="muted" ng-show="previousSentence != null">Previous: {{previousSentence}}</h5>
+
+<p>
+  <a href="mailto:?subject=I wanted to share this jargon with you!&amp;body={{sentence}}" class="btn btn-primary">Email this!</a>
+</p>
 
 <hr/>
 <button class="btn" ng-click="isCollapsed = !isCollapsed">Add words</button>

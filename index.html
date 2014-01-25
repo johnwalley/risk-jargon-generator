@@ -13,6 +13,16 @@
     <div class="navbar-inner">
       <a class="brand" ui-sref="jargon">Risk Jargon Generator</a>
       <ul class="nav">
+        <li class="dropdown" ng-controller="DropdownCtrl">
+          <a href="#" class="dropdown-toggle">
+            History <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="choice in items.history | lastTen">
+              <a>{{choice}}</a>
+            </li>
+          </ul>
+        </li>      
         <li>
           <a ui-sref="about">About</a>
         </li>

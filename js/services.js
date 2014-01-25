@@ -6,13 +6,18 @@ angular.module('riskJargonGenerator.services', []).
   value('version', '0.2').
   factory('Jargon',
     function() {
-
     var constructs = [{
       types: ["verb", "adjective", "abbreviation", "noun"],
       structure: "We need to {0} the {1} {2} {3}!"
     }, {
       types: ["verb", "abbreviation", "noun", "verb", "adjective", "noun"],
       structure: "Try to {0} the {1} {2} - maybe it will {3} the {4} {5}!"
+    }, {
+      types: ["adjective", "noun", "verb", "abbreviation", "noun"],
+      structure: "The {0} {1} should {2} our {3} {4}!"
+    }, {
+      types: ["noun", "verb", "adjective", "noun", "verb", "adjective", "abbreviation"],
+      structure: "Going forward the {0} will {1} the {2} {3} but we should {4} the {5} {6}!"
     }];
 
     var jargon = {};
@@ -50,6 +55,21 @@ angular.module('riskJargonGenerator.services', []).
     }
 
     return jargon
+  }).
+  factory('History',
+    function() {
+
+    var obj = {};
+
+    var history = [];
+
+    obj.history = history;
+
+    obj.Update = function(sentence) {
+      history.push(sentence);
+    } 
+
+    return { history: obj };
 });
 
 
