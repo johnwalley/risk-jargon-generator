@@ -18,7 +18,7 @@
       </form>
       <ul class="unstyled">
         <li ng-repeat="verb in verbs.models">
-          {{verb.getWord()}}
+          <span>{{verb.getWord()}} <button class="destroy" ng-click="removeVerb(verb)"></button></span>
         </li>
       </ul>
     </div>
@@ -31,7 +31,7 @@
       </form>
       <ul class="unstyled">
         <li ng-repeat="adjective in adjectives.models">
-          {{adjective.getWord()}}
+          <span>{{adjective.getWord()}} <button class="destroy" ng-click="removeAdjective(adjective)"></button></span>          
         </li>
       </ul>
     </div>
@@ -44,7 +44,7 @@
       </form>
       <ul class="unstyled">
         <li ng-repeat="noun in nouns.models">
-          {{noun.getWord()}}
+          <span>{{noun.getWord()}} <button class="destroy" ng-click="removeNoun(noun)"></button></span>                    
         </li>
       </ul>
     </div>
@@ -57,8 +57,8 @@
       </form>
       <ul class="unstyled">
         <li ng-repeat="abbreviation in abbreviations.models">
-          {{abbreviation.getWord()}}
-          </li>
+          <span>{{abbreviation.getWord()}} <button class="destroy" ng-click="removeAbbreviation(abbreviation)"></button></span>                    
+        </li>
       </ul>
     </div>
   </div>

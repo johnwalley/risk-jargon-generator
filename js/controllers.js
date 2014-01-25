@@ -40,17 +40,33 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
   	verbs.addWord($scope.newverb)
   };
 
+  $scope.removeVerb = function(verb) {
+    verbs.removeWord(verb);
+  }
+
   $scope.addAbbreviation = function() {
   	abbreviations.addWord($scope.newabbreviation)
   };
+
+  $scope.removeAbbreviation = function(abbreviation) {
+    abbreviations.removeWord(abbreviation);
+  }  
 
   $scope.addNoun = function() {
   	nouns.addWord($scope.newnoun)
   };
 
+  $scope.removeNoun = function(noun) {
+    nouns.removeWord(noun);
+  }    
+
   $scope.addAdjective = function() {
   	adjectives.addWord($scope.newadjective)
   };
+
+  $scope.removeAdjective = function(adjective) {
+    adjectives.removeWord(adjective);
+  }     
 }]).
 controller('DropdownCtrl', ['$scope', 'History', function($scope, History) {
   $scope.items = History.history;
