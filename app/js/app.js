@@ -22,15 +22,20 @@ config(function($stateProvider, $urlRouterProvider) {
   	templateUrl: "partials/jargon.html",
   	controller: 'JargonCtrl'
   })
-  .state('jargon.list', {
-  	url: "/list",
-  	templateUrl: "partials/jargon.list.html",
-  	controller: 'JargonListCtrl'
-  })
   .state('about', {
   	url: "/about",
   	templateUrl: "partials/about.html"
   })
+  .state('join', {
+    url: "/join",
+    templateUrl: "partials/join.html",
+    controller: 'JoinCtrl'
+  })   
+  .state('login', {
+    url: "/login",
+    templateUrl: "partials/login.html",
+    controller: 'LoginCtrl'
+  })  
 }).
 run(['ParseSDK', 'ExtendParseSDK', '$rootScope', '$state', '$stateParams',
 function(ParseService, ExtendParseSDK, $rootScope, $state, $stateParams) {

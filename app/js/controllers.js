@@ -74,4 +74,48 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
 }]).
 controller('DropdownCtrl', ['$scope', 'History', function($scope, History) {
   $scope.items = History.history;
+}]).
+controller('JoinCtrl', ['ParseQueryAngular', '$scope', function(ParseQueryAngular, $scope) {
+  $scope.submitForm = function() {
+    // check to make sure the form is completely valid
+    if ($scope.userForm.$valid) {
+      var user = new Parse.User();
+
+      user.set('username', $scope.user.username);
+      user.set('password', $scope.user.password);
+
+      ParseQueryAngular(user, { functionToCall:"signUp", params:[null] }).then(function(registeredUser) {
+
+          // since we know that the result will be inside the Angular digest, we make use of Angular's two-way data binding and automatically update all our views by simply updating the user object
+
+          $scope.debug = registeredUser;
+
+      }, function(error) {
+          // any rejected promises in the chain will be caught here
+          console.log(error);
+      });      
+    }
+  };  
+}]).
+controller('LoginCtrl', ['ParseQueryAngular', '$scope', function(ParseQueryAngular, $scope) {
+  $scope.submitForm = function() {
+    // check to make sure the form is completely valid
+    if ($scope.userForm.$valid) {
+      var user = new Parse.User();
+
+      user.set('username', $scope.user.username);
+      user.set('password', $scope.user.password);
+
+      ParseQueryAngular(user, { functionToCall:"logIn", params:[null] }).then(function(registeredUser) {
+
+          // since we know that the result will be inside the Angular digest, we make use of Angular's two-way data binding and automatically update all our views by simply updating the user object
+
+          $scope.debug = registeredUser;
+
+      }, function(error) {
+          // any rejected promises in the chain will be caught here
+          console.log(error);
+      });      
+    }
+  };  
 }]);
