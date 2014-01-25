@@ -18,7 +18,7 @@
             History <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li ng-repeat="choice in items">
+            <li ng-repeat="choice in items.history | lastTen">
               <a>{{choice}}</a>
             </li>
           </ul>

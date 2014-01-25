@@ -5,6 +5,7 @@ angular.module('riskJargonGenerator', [
 	'riskJargonGenerator.controllers',
   'riskJargonGenerator.services',
   'riskJargonGenerator.directives',
+  'riskJargonGenerator.filters',
   'ui.router',
   'ui.bootstrap',
   'ParseServices',

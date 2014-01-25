@@ -61,26 +61,15 @@ angular.module('riskJargonGenerator.services', []).
 
     var obj = {};
 
-    obj.lastTenSentences = [];
-
     var history = [];
 
     obj.history = history;
 
     obj.Update = function(sentence) {
       history.push(sentence);
-      this.lastTenSentences = GetLastTenSentences();
-    }
+    } 
 
-    function GetLastTenSentences(sentence) {
-      var length = history.length;
-
-      var start = Math.max(length - 10, 0);
-
-      return history.slice(start, length - 1);
-    }  
-
-    return obj;
+    return { history: obj };
 });
 
 

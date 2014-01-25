@@ -12,7 +12,7 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
 	$scope.refresh = function() {
     var sentence = Jargon.generate(jargon);
     $scope.sentence = sentence;
-    History.Update(sentence);
+    History.history.Update(sentence);
 	}
 
   // Get the collections from our data definitions
