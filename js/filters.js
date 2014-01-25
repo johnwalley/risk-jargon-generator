@@ -20,6 +20,8 @@ angular.module('riskJargonGenerator.filters', []).
   	if (len <= 1)
   		return ["No history to show"];
 
-    return items.slice(Math.max(0, length - 6), -1).reverse();
+  	var numItemsInHistory = 10;
+
+    return items.slice(Math.max(0, len - numItemsInHistory - 1), -1).reverse();
   }
 });
