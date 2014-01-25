@@ -37,7 +37,8 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
   $scope.adjectives = adjectives;
 
   $scope.addVerb = function() {
-  	verbs.addWord($scope.newverb)
+  	verbs.addWord($scope.newverb);
+    $scope.newverb = "";
   };
 
   $scope.removeVerb = function(verb) {
@@ -45,7 +46,8 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
   }
 
   $scope.addAbbreviation = function() {
-  	abbreviations.addWord($scope.newabbreviation)
+  	abbreviations.addWord($scope.newabbreviation);
+    $scope.newabbreviation = "";
   };
 
   $scope.removeAbbreviation = function(abbreviation) {
@@ -54,6 +56,7 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
 
   $scope.addNoun = function() {
   	nouns.addWord($scope.newnoun)
+    $scope.newnoun = "";
   };
 
   $scope.removeNoun = function(noun) {
@@ -61,7 +64,8 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
   }    
 
   $scope.addAdjective = function() {
-  	adjectives.addWord($scope.newadjective)
+  	adjectives.addWord($scope.newadjective);
+    $scope.newadjective = "";
   };
 
   $scope.removeAdjective = function(adjective) {
