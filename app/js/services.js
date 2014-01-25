@@ -263,7 +263,7 @@ angular.module('ExternalDataServices')
     var Verbs = Parse.Collection.extendAngular({
       model: Verb,
       comparator: function(model) {
-        return -model.createdAt.getTime();
+        return model.attributes.word.toLowerCase();
       },
       addWord: function(word) {
         // save request_id to Parse
@@ -289,7 +289,7 @@ angular.module('ExternalDataServices')
     var Abbreviations = Parse.Collection.extendAngular({
       model: Abbreviation,
       comparator: function(model) {
-        return -model.createdAt.getTime();
+        return model.attributes.word.toLowerCase();
       },
       addWord: function(word) {
         // save request_id to Parse
@@ -315,7 +315,7 @@ angular.module('ExternalDataServices')
     var Nouns = Parse.Collection.extendAngular({
       model: Noun,
       comparator: function(model) {
-        return -model.createdAt.getTime();
+        return model.attributes.word.toLowerCase();
       },
       addWord: function(word) {
         // save request_id to Parse
@@ -341,7 +341,7 @@ angular.module('ExternalDataServices')
     var Adjectives = Parse.Collection.extendAngular({
       model: Adjective,
       comparator: function(model) {
-        return -model.createdAt.getTime();
+        return model.attributes.word.toLowerCase();
       },
       addWord: function(word) {
         // save request_id to Parse
