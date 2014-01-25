@@ -29,7 +29,7 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
   };
 
   // Wait for all promises to resolve before creating initial jargon.
-  $q.all([verbs.load(), abbreviations.load(), nouns.load(), adjectives.load()]).then( function() { $scope.sentence = Jargon.generate(jargon)} );
+  $q.all([verbs.load(), abbreviations.load(), nouns.load(), adjectives.load()]).then( function() { $scope.refresh() });
 
   $scope.verbs = verbs;
   $scope.abbreviations = abbreviations;

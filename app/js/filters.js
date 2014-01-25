@@ -16,6 +16,10 @@ angular.module('riskJargonGenerator.filters', []).
   filter('lastTen', function() {
   return function(items) {
   	var len = items.length;
-    return items.slice(length - 6, length - 1).reverse();
+
+  	if (len <= 1)
+  		return ["No history to show"];
+
+    return items.slice(Math.max(0, length - 6), -1).reverse();
   }
 });
