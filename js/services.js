@@ -71,7 +71,8 @@ angular.module('riskJargonGenerator.services', []).
     }
 
     obj.Jump = function(sentence) {
-      obj.current = sentence;
+      if (history.length > 1)
+        obj.current = sentence;
     }
 
     return { history: obj };
