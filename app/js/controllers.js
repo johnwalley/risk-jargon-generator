@@ -11,8 +11,8 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
 
 	$scope.refresh = function() {
     var sentence = Jargon.generate(jargon);
-    $scope.sentence = sentence;
     History.history.Update(sentence);
+    $scope.history = History.history;    
 	}
 
   // Get the collections from our data definitions
@@ -74,4 +74,5 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
 }]).
 controller('DropdownCtrl', ['$scope', 'History', function($scope, History) {
   $scope.items = History.history;
+  $scope.Jump = History.history.Jump;
 }]);
