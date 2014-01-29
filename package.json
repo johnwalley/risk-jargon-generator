@@ -3,7 +3,6 @@
   "description": "Generates risk-related jargon",
   "repository": "https://github.com/johnwalley/risk-jargon-generator",
   "devDependencies": {
-    "phantomjs": "~1.9",
     "karma": "~0.10",
     "karma-junit-reporter": "~0.1",
     "karma-jasmine": "~0.1",
