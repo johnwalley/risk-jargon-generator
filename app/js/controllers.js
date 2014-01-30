@@ -110,10 +110,11 @@ controller('LoginCtrl', ['ParseQueryAngular', '$scope', function(ParseQueryAngul
 
           // since we know that the result will be inside the Angular digest, we make use of Angular's two-way data binding and automatically update all our views by simply updating the user object
 
-          $scope.debug = registeredUser;
+          $scope.debug = "Success";
 
       }, function(error) {
           // any rejected promises in the chain will be caught here
+          $scope.debug = "Failure"
           console.log(error);
       });      
     }
