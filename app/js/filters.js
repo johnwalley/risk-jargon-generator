@@ -2,7 +2,7 @@
 
 /* Filters */
 
-angular.module('riskJargonGenerator.filters', []).
+angular.module('riskJargonGenerator.filters', ['riskJargonGenerator.services']).
 filter('interpolate', ['version', function(version) {
   return function(text) {
     return String(text).replace(/\%VERSION\%/mg, version);
@@ -13,7 +13,7 @@ filter('reverse', function() {
     return items.slice().reverse();
   }
 }).
-filter('lastTen', function() {
+filter('lastTen', ['History', function(History) {
   return function(items) {
   	var len = items.length;
 
@@ -22,6 +22,10 @@ filter('lastTen', function() {
 
   	var numItemsInHistory = 10;
 
-    return items.slice(Math.max(0, len - numItemsInHistory - 1), -1).reverse();
+    if (History.history.stale) {
+      return items.slice(Math.max(0, len - numItemsInHistory - 1), len).reverse();
+    } else {
+      return items.slice(Math.max(0, len - numItemsInHistory - 1), -1).reverse();
+    }
   }
-});
+}]);

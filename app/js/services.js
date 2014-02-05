@@ -64,15 +64,19 @@ angular.module('riskJargonGenerator.services', []).
     var history = [];
 
     obj.history = history;
+    obj.stale = false;
 
     obj.Update = function(sentence) {
       history.push(sentence);
       obj.current = sentence;
+      obj.stale = false;
     }
 
     obj.Jump = function(sentence) {
-      if (history.length > 1)
+      if (history.length > 1) {
         obj.current = sentence;
+        obj.stale = true;
+      }
     }
 
     return { history: obj };
