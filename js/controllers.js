@@ -7,12 +7,10 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
 	
   $scope.isCollapsed = true;
 
-  var history = new Array();
-
 	$scope.refresh = function() {
     var sentence = Jargon.generate(jargon);
     History.history.Update(sentence);
-    $scope.history = History.history;    
+    $scope.history = History.history;
 	}
 
   // Get the collections from our data definitions
