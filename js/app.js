@@ -20,7 +20,25 @@ config(function($stateProvider, $urlRouterProvider) {
   .state('jargon', {
   	url: "/jargon",
   	templateUrl: "partials/jargon.html",
-  	controller: 'JargonCtrl'
+  	controller: 'JargonCtrl',
+    resolve: {
+      load: ['JargonService', '$q', function(JargonService, $q) {
+        // Get the collections from our data definitions
+        var verbs = new JargonService.verbs();
+        var abbreviations = new JargonService.abbreviations();
+        var nouns = new JargonService.nouns();
+        var adjectives = new JargonService.adjectives();
+
+        return $q.all([verbs.load(), abbreviations.load(), nouns.load(), adjectives.load()]).then(function (value) {
+          return {
+            verbs: verbs,
+            abbreviations: abbreviations,
+            nouns: nouns,
+            adjectives: adjectives,
+          };
+        });
+      }]
+    }
   })
   .state('jargon.list', {
   	url: "/list",
