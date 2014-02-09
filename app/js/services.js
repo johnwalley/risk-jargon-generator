@@ -380,7 +380,7 @@ angular.module('ExternalDataServices')
       verbs: Verbs,
       abbreviations: Abbreviations,
       nouns: Nouns,
-      adjectives: Adjectives,
+      adjectives: Adjectives
     };
   }
 ]);
