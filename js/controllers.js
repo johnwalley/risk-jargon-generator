@@ -23,7 +23,7 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
   	verbs: verbs,
   	abbreviations: abbreviations,
   	nouns: nouns,
-  	adjectives: adjectives,
+  	adjectives: adjectives
   };
 
   // Wait for all promises to resolve before creating initial jargon.
