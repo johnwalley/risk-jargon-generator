@@ -64,16 +64,19 @@ angular.module('riskJargonGenerator.services', []).
     var history = [];
 
     obj.history = history;
+    obj.stale = false;
 
     obj.Update = function(sentence) {
       history.push(sentence);
       obj.current = sentence;
+      obj.stale = false;
     }
 
     obj.Jump = function(sentence) {
       if (history.length > 1) {
         history.push(obj.current);
         obj.current = sentence;
+        obj.stale = true;
       }
     }
 
@@ -378,7 +381,7 @@ angular.module('ExternalDataServices')
       verbs: Verbs,
       abbreviations: Abbreviations,
       nouns: Nouns,
-      adjectives: Adjectives,
+      adjectives: Adjectives
     };
   }
 ]);
