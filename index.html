@@ -19,7 +19,7 @@
           </a>
           <ul class="dropdown-menu">
             <li ng-repeat="choice in items.history | lastTen">
-              <a href ui-sref="jargon" ng-click="Jump(choice)">{{choice}}</a>
+              <a ui-sref="jargon" ng-click="Jump(choice)">{{choice}}</a>
             </li>
           </ul>
         </li>      
@@ -27,6 +27,13 @@
           <a ui-sref="about">About</a>
         </li>
       </ul>
+      <ul class="nav pull-right">
+        <li>
+          <a ui-sref="join">Sign up</a>
+        </li>
+        <li>
+          <a ui-sref="login">Sign in</a>
+        </li>        
     </div>
   </div>
 

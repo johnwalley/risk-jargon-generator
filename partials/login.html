@@ -1,0 +1,19 @@
+<form name="userForm" ng-submit="submitForm()" novalidate> <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
+
+    <div class="control-group" ng-class="{ 'error' : userForm.username.$invalid && !userForm.username.$pristine }">
+        <label>Username</label>
+        <input type="text" name="username" class="form-control" ng-model="user.username" required>
+        <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">A username is required.</p>        
+    </div>
+    
+    <div class="control-group" ng-class="{ 'error' : userForm.password.$invalid && !userForm.password.$pristine }">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" ng-model="user.password" required>
+        <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">A password is required.</p>        
+    </div>
+
+    {{debug}}
+    
+    <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Sign in</button>
+    
+</form>

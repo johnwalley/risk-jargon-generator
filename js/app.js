@@ -20,35 +20,22 @@ config(function($stateProvider, $urlRouterProvider) {
   .state('jargon', {
   	url: "/jargon",
   	templateUrl: "partials/jargon.html",
-  	controller: 'JargonCtrl',
-    resolve: {
-      load: ['JargonService', '$q', function(JargonService, $q) {
-        // Get the collections from our data definitions
-        var verbs = new JargonService.verbs();
-        var abbreviations = new JargonService.abbreviations();
-        var nouns = new JargonService.nouns();
-        var adjectives = new JargonService.adjectives();
-
-        return $q.all([verbs.load(), abbreviations.load(), nouns.load(), adjectives.load()]).then(function (value) {
-          return {
-            verbs: verbs,
-            abbreviations: abbreviations,
-            nouns: nouns,
-            adjectives: adjectives,
-          };
-        });
-      }]
-    }
-  })
-  .state('jargon.list', {
-  	url: "/list",
-  	templateUrl: "partials/jargon.list.html",
-  	controller: 'JargonListCtrl'
+  	controller: 'JargonCtrl'
   })
   .state('about', {
   	url: "/about",
   	templateUrl: "partials/about.html"
   })
+  .state('join', {
+    url: "/join",
+    templateUrl: "partials/join.html",
+    controller: 'JoinCtrl'
+  })   
+  .state('login', {
+    url: "/login",
+    templateUrl: "partials/login.html",
+    controller: 'LoginCtrl'
+  })  
 }).
 run(['ParseSDK', 'ExtendParseSDK', '$rootScope', '$state', '$stateParams',
 function(ParseService, ExtendParseSDK, $rootScope, $state, $stateParams) {
