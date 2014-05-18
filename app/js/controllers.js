@@ -9,19 +9,16 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', 'verbs
   $scope.isCollapsed = true;
 
   $scope.generate = function() {
-    update(true);
+    History.history.Update(Jargon.generate(jargon));
   }
 
 	$scope.refresh = function() {
     if (Jargon.firstTime) {
-      update(false);    
+      History.history.Update(Jargon.generate(jargon));
     }
-	}
 
-  var update = function(firstTime) {
-    History.history.Update(Jargon.generate(jargon));
-    Jargon.firstTime = firstTime;  
-  }
+    Jargon.firstTime = false;  
+	}
 
   var jargon =  {
   	verbs: verbs,
