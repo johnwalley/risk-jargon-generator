@@ -3,21 +3,25 @@
 /* Controllers */
 
 angular.module('riskJargonGenerator.controllers', ['riskJargonGenerator.services']).
-controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', function($scope, Jargon, JargonService, History, $q) {
+controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', 'verbs', 'abbreviations', 'nouns', 'adjectives',
+  function($scope, Jargon, JargonService, History, verbs, abbreviations, nouns, adjectives) {
 	
   $scope.isCollapsed = true;
 
+  $scope.generate = function() {
+    update(true);
+  }
+
 	$scope.refresh = function() {
-    var sentence = Jargon.generate(jargon);
-    History.history.Update(sentence);
-    $scope.history = History.history;
+    if (Jargon.firstTime) {
+      update(false);    
+    }
 	}
 
-  // Get the collections from our data definitions
-  var verbs = new JargonService.verbs();
-  var abbreviations = new JargonService.abbreviations();
-  var nouns = new JargonService.nouns();
-  var adjectives = new JargonService.adjectives();
+  var update = function(firstTime) {
+    History.history.Update(Jargon.generate(jargon));
+    Jargon.firstTime = firstTime;  
+  }
 
   var jargon =  {
   	verbs: verbs,
@@ -26,8 +30,9 @@ controller('JargonCtrl', ['$scope', 'Jargon', 'JargonService', 'History', '$q', 
   	adjectives: adjectives
   };
 
-  // Wait for all promises to resolve before creating initial jargon.
-  $q.all([verbs.load(), abbreviations.load(), nouns.load(), adjectives.load()]).then( function() { $scope.refresh() });
+  $scope.history = History.history;
+
+  $scope.refresh();
 
   $scope.verbs = verbs;
   $scope.abbreviations = abbreviations;
