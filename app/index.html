@@ -19,7 +19,7 @@
           </a>
           <ul class="dropdown-menu">
             <li ng-repeat="choice in items.history | lastTen">
-              <a ui-sref="jargon" ng-click="Jump(choice)">{{choice}}</a>
+              <a ui-sref="jargon(choice)" ng-click="Jump(choice)">{{choice}}</a>
             </li>
           </ul>
         </li>      

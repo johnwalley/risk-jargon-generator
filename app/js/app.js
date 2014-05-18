@@ -20,7 +20,25 @@ config(function($stateProvider, $urlRouterProvider) {
   .state('jargon', {
   	url: "/jargon",
   	templateUrl: "partials/jargon.html",
-  	controller: 'JargonCtrl'
+  	controller: 'JargonCtrl',
+    resolve: {
+      verbs: function(JargonService) {
+        var verbs = new JargonService.verbs();
+        return verbs.load();
+      },
+      abbreviations: function(JargonService) {
+        var abbreviations = new JargonService.abbreviations();
+        return abbreviations.load();
+      },
+      nouns: function(JargonService) {
+        var nouns = new JargonService.nouns();
+        return nouns.load();
+      },
+      adjectives: function(JargonService) {
+        var adjectives = new JargonService.adjectives();
+        return adjectives.load();
+      }
+    }
   })
   .state('about', {
   	url: "/about",
